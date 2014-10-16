@@ -15,10 +15,40 @@
 
     <!-- Initializer -->
     <script>
-      Flatdoc.run({
-        fetcher: Flatdoc.github('bpiwowar/experimaestro')
+        $(document).ready(function() {
+          var urlParams;
+          var match,
+              pl     = /\+/g,  // Regex for replacing addition symbol with a space
+              search = /([^&=]+)=?([^&]*)/g,
+              decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+              query  = window.location.search.substring(1);
+
+          urlParams = {};
+          while (match = search.exec(query))
+             urlParams[decode(match[1])] = decode(match[2]);
+
+        // Documentation base is in the server module
+        var path = "path" in urlParams ? urlParams["path"] : "server/doc/index.md";
+
+        Flatdoc.run({
+          fetcher: Flatdoc.github('bpiwowar/experimaestro', path)
+        });
       });
+
+      $(document).on('flatdoc:ready', function() {
+            $("div.content a").click(function(e) {
+              var path = this.getAttribute("href");
+              if (path.match(/https?:\//)) {
+                return true;
+              }
+              var url = $(location).attr('protocol') + "//" + $(location).attr('host') + $(location).attr('pathname') + "?path=" + path;
+              window.location = url;
+              return false;
+            });
+        });
+
     </script>
+
   </head>
 
   <body role='flatdoc'>

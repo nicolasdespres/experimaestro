@@ -73,6 +73,7 @@ Also includes:
     } else {
       url = 'https://api.github.com/repos/'+repo+'/readme';
     }
+
     return function(callback) {
       $.get(url)
         .fail(function(e) { callback(e, null); })
