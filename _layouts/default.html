@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title>{{ page.title }}</title>
+		<script type="text/javascript"
+		  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+		<link rel="stylesheet" type="text/css" media="screen" href="/pygments.css">
+		
+		<style type="text/css" media="screen">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			/* Banner */
+			.banner { 
+				margin: 0;
+				padding: 5px;
+				width: 100%;
+				background: #fdd;
+				border-bottom: 1px solid black;
+				font-weight: bold;
+			}
+			.banner a {
+				text-decoration: none;
+				color: #800;
+			}
+			
+			/* Content */
+			.content {
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="banner"><a href="/">Experimaestro - experiment manager</a> - <a href="https://github.com/bpiwowar/experimaestro">On GitHub</a></div>
+		<div class="content">
+		{{ content }}
+		</div>
+	</body>
+</html>

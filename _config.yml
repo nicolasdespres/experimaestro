@@ -1,0 +1,15 @@
+exclude: ["CNAME"]
+
+name: Experimaestro website
+
+description: Site for the experiment manager Experimaestro
+
+author_email: benjamin@bpiwowar.net
+
+author: Benjamin Piwowarski
+
+baseurl: 
+
+markdown: redcarpet
+
+extensions: [fenced_code_blocks]
