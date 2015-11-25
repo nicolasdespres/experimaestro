@@ -148,12 +148,6 @@ def start_jar(args, jarargs):
                 logging.debug("%d attempt to ping server...", nattempt)
                 rc = raw_ping(json_server)
             except requests.exceptions.ConnectionError as e:
-                # This test is kind of dirty but for some reasons the
-                # 'requests' module does not use the Built-in ConnectionError
-                # and the 'errno' attribute of the exception always returns
-                # None.
-                if e.args[0].args[1].errno != errno.ECONNREFUSED:
-                    logging.error("Ping failed: %s", e)
                 last_error = e
             else:
                 if rc:
